@@ -2,7 +2,7 @@ data:extend{
   {
     type = "recipe",
     name = "signal-filter-combinator",
-    enabled = "true",
+    enabled = "false",
     ingredients =
     {
       {"constant-combinator", 1},
