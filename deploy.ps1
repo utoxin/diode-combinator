@@ -1,0 +1,2 @@
+Remove-Item -path "$env:APPDATA\Factorio\mods\Filter_Combinator_1.1.1\*" -Force -Recurse
+Copy-Item -Path "*" -Destination "$env:APPDATA\Factorio\mods\Filter_Combinator_1.1.1" -PassThru -Force -Recurse -Exclude @(".vs", ".gitignore", "deploy.ps1", "README.md", ".git")
