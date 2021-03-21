@@ -1,19 +1,18 @@
 local function onTick(e)
 	for _, entity in pairs(global.entities) do
         if entity.main_entity and entity.main_entity.valid == true then
-            local control = entity.main_entity.get_control_behavior()
-            local red = control.get_circuit_network(defines.wire_type.red, defines.circuit_connector_id.combinator_input)
-            local green = control.get_circuit_network(defines.wire_type.green, defines.circuit_connector_id.combinator_input)
+            local control_behavior = entity.main_entity.get_control_behavior()
+            local red = control_behavior.get_circuit_network(defines.wire_type.red, defines.circuit_connector_id.combinator_input)
+            local green = control_behavior.get_circuit_network(defines.wire_type.green, defines.circuit_connector_id.combinator_input)
 
             local entity_output = entity.output_entity
             if entity_output and entity_output.valid == true then
                 if green and green.signals and red and red.signals then
                     
-                    local control_mode = control.parameters.second_constant or 0
+                    local control_mode = control_behavior.parameters.second_constant or 0
                     
                     local parameters = {}
                     local index = 0
-                    local signals = {}
                     local control
                     local input
 

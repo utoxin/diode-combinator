@@ -16,12 +16,12 @@ end
 
 local function on_gui_opened(e)
 	if not (e.entity and e.entity.name == 'signal-filter-combinator') then return end
-		
+	
     local player = game.players[e.player_index]
     global.opened_entity[e.player_index] = e.entity.unit_number
 
 	if not global.entities[e.entity.unit_number] then return end
-            
+    
     local gui_elements = {}
     local caption
     local control_mode = e.entity.get_control_behavior().parameters.second_constant
@@ -80,11 +80,12 @@ local function on_gui_switch_state_changed(e)
     if not (e.element and global.opened_entity) then return end
 
     local unit_number = global.opened_entity[e.player_index]
+    if not (unit_number and global.entities[unit_number]) then return end
+
     local entity = global.entities[unit_number].main_entity
     local control_mode = entity.get_control_behavior().parameters.second_constant
 
     if not (entity and control_mode) then return end
-
 
     if e.element.name == "control-wire-switch" then
         if e.element.switch_state == "left" then
