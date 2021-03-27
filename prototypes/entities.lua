@@ -99,6 +99,7 @@ output.activity_led_sprites = {
 	south = blank_sprite,
 	west = blank_sprite
 }
+output.item_slot_count = settings.startup["filter-combinator-output-slots"].value
 
 local output_connection_points = table.deepcopy(main.output_connection_points)
 

@@ -1,3 +1,7 @@
+function getEntity(unit_number)
+    return global.entities[unit_number] or global.deactivated_entities[unit_number]
+end
+
 local function getOutputPosition(main_entity)
     local position = main_entity.position
 
@@ -14,18 +18,21 @@ end
 local function onInit()
     global.opened_entity = global.opened_entity or {}
     global.entities = global.entities or {}
+    global.deactivated_entities = global.deactivated_entities or {}
 end
 
 local function onRotated(e)
     if e.entity and e.entity.name == "signal-filter-combinator" then
-        local output_entity = global.entities[e.entity.unit_number].output_entity
+        local output_entity = getEntity(e.entity.unit_number).output_entity
         output_entity.teleport(getOutputPosition(e.entity))
         output_entity.direction = e.entity.direction
     end
 end
 
-function onBuiltEntity(e)
+local function onBuiltEntity(e)
+    game.print("1")
     if e.created_entity and e.created_entity.name == "signal-filter-combinator" then
+        game.print("1")
         local main_entity = e.created_entity
 
         local output_entity = main_entity.surface.create_entity{
@@ -62,14 +69,20 @@ function onBuiltEntity(e)
     end
 end
 
-function onMinedEntity(e)
+local function onMinedEntity(e)
     if e.entity and e.entity.name == "signal-filter-combinator" then
-        global.entities[e.entity.unit_number].output_entity.destroy({raise_destroy = false})
-        table.remove(global.entities, e.entity.unit_number)
+        getEntity(e.entity.unit_number).output_entity.destroy({raise_destroy = false})
+        if global.entities[e.entity.unit_number] then
+            table.remove(global.entities, e.entity.unit_number)
+        end
+        if global.deactivated_entities[e.entity.unit_number] then
+            table.remove(global.deactivated_entities, e.entity.unit_number)
+        end
     end
 end
 
-script.on_init(onInit)
+script.on_init(setupGlobals)
+script.on_configuration_changed(setupGlobals)
 
 local filter = {{filter = "name", name = "signal-filter-combinator"}}
 

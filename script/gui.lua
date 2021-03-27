@@ -20,7 +20,7 @@ local function on_gui_opened(e)
     local player = game.players[e.player_index]
     global.opened_entity[e.player_index] = e.entity.unit_number
 
-	if not global.entities[e.entity.unit_number] then return end
+	if not getEntity(e.entity.unit_number) then return end
     
     local gui_elements = {}
     local caption
@@ -68,21 +68,23 @@ local function on_gui_closed(e)
     local unit_number = global.opened_entity[e.player_index]
 
     -- Check if the entity is owned by this mod
-    if global.entities[unit_number] then
-        e.element.destroy()
-        e.element = nil
-        game.players[e.player_index].opened = nil
-        global.opened_entity[e.player_index] = nil
+    if not getEntity(unit_number) then
+        return
     end
+
+    e.element.destroy()
+    e.element = nil
+    game.players[e.player_index].opened = nil
+    global.opened_entity[e.player_index] = nil
 end
 
 local function on_gui_switch_state_changed(e)
     if not (e.element and global.opened_entity) then return end
 
     local unit_number = global.opened_entity[e.player_index]
-    if not (unit_number and global.entities[unit_number]) then return end
+    if not (unit_number and getEntity(unit_number)) then return end
 
-    local entity = global.entities[unit_number].main_entity
+    local entity = getEntity(unit_number).main_entity
     local control_mode = entity.get_control_behavior().parameters.second_constant
 
     if not (entity and control_mode) then return end
