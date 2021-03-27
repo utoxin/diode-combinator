@@ -1,7 +1,7 @@
 $version = ((Get-Content "info.json" -Raw) | ConvertFrom-Json).version
 
 Remove-Item -path "$env:APPDATA\Factorio\mods\Filter_Combinator_$version\*" -Force -Recurse
-Copy-Item -Path "*" -Destination "$env:APPDATA\Factorio\mods\Filter_Combinator_$version" -PassThru -Force -Recurse -Exclude @(".vs", ".gitignore", "deploy.ps1", "README.md", ".git", "Releases")
+Copy-Item -Path "*" -Destination "$env:APPDATA\Factorio\mods\Filter_Combinator_$version" -PassThru -Force -Recurse -Exclude @(".vs", ".gitignore", "deploy.ps1", "README.md", ".git", "Releases", "TODO.log")
 
 $7zipPath = "$env:ProgramFiles\7-Zip\7z.exe"
 
