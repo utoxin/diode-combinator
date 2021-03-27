@@ -17,10 +17,10 @@ end
 local function on_gui_opened(e)
 	if not (e.entity and e.entity.name == 'signal-filter-combinator') then return end
 	
+    if not getEntity(e.entity.unit_number) then return end
+	
     local player = game.players[e.player_index]
     global.opened_entity[e.player_index] = e.entity.unit_number
-
-	if not getEntity(e.entity.unit_number) then return end
     
     local gui_elements = {}
     local caption
@@ -85,6 +85,8 @@ local function on_gui_switch_state_changed(e)
     if not (unit_number and getEntity(unit_number)) then return end
 
     local entity = getEntity(unit_number).main_entity
+    if not entity.valid then return end
+
     local control_mode = entity.get_control_behavior().parameters.second_constant
 
     if not (entity and control_mode) then return end

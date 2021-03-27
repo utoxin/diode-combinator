@@ -68,14 +68,15 @@ local function onBuiltEntity(e)
 end
 
 local function onMinedEntity(e)
-    if e.entity and e.entity.name == "signal-filter-combinator" then
-        getEntity(e.entity.unit_number).output_entity.destroy({raise_destroy = false})
-        if global.entities[e.entity.unit_number] then
-            table.remove(global.entities, e.entity.unit_number)
-        end
-        if global.deactivated_entities[e.entity.unit_number] then
-            table.remove(global.deactivated_entities, e.entity.unit_number)
-        end
+    if not (e.entity and e.entity.name == "signal-filter-combinator") then return end
+
+    getEntity(e.entity.unit_number).output_entity.destroy({raise_destroy = false})
+
+    if global.entities[e.entity.unit_number] then
+        table.remove(global.entities, e.entity.unit_number)
+    end
+    if global.deactivated_entities[e.entity.unit_number] then
+        table.remove(global.deactivated_entities, e.entity.unit_number)
     end
 end
 
