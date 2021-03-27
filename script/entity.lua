@@ -30,9 +30,7 @@ local function onRotated(e)
 end
 
 local function onBuiltEntity(e)
-    game.print("1")
     if e.created_entity and e.created_entity.name == "signal-filter-combinator" then
-        game.print("1")
         local main_entity = e.created_entity
 
         local output_entity = main_entity.surface.create_entity{

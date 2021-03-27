@@ -34,7 +34,7 @@ local function getOutputParameters(entity)
     if control_mode == 0 or control_mode == 1 then -- whitelist
         for signalId, signal in ipairs(control.signals) do
             local value = input.get_signal({type = signal.signal.type, name = signal.signal.name})
-            if signal and signal.signal and signal.count and value then
+            if signal and signal.signal and signal.count and value ~= 0 then
                 index = index + 1
                 if index > output_slots then
                     result.isOverflow = true
