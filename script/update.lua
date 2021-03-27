@@ -105,12 +105,19 @@ local function onTick(e)
             and entity.output_entity
             and entity.output_entity.valid
         then
-            local outputParameters = getOutputParameters(entity)
-
-            if not outputParameters.isOverflow then
-                entity.output_entity.get_control_behavior().parameters = outputParameters.parameters
+            if 
+                entity.main_entity.status == defines.entity_status.no_power
+                or entity.main_entity.status == defines.entity_status.low_power
+            then
+                entity.output_entity.get_control_behavior().parameters = nil
             else
-                handleSignalOverflow(entity)
+                local outputParameters = getOutputParameters(entity)
+
+                if not outputParameters.isOverflow then
+                    entity.output_entity.get_control_behavior().parameters = outputParameters.parameters
+                else
+                    handleSignalOverflow(entity)
+                end
             end
         end
     end
