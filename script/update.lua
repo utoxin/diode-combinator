@@ -1,5 +1,9 @@
 local max_output_signals
 
+local function setMaxOutputSignals()
+    max_output_signals = settings.startup["filter-combinator-output-slots"].value
+end
+
 local function getOutputParameters(entity)
     
     local result = {
@@ -93,7 +97,7 @@ local function handleSignalOverflow(entity)
 end
 
 local function onTick(e)
-    if not max_output_signals then
+    if (not max_output_signals) and setMaxOutputSignals then
         setMaxOutputSignals()
     end
 
@@ -137,10 +141,6 @@ local function reactivateAll()
             sendAlert(entity)
         end
     end
-end
-
-local function setMaxOutputSignals()
-    max_output_signals = settings.startup["filter-combinator-output-slots"].value
 end
 
 script.on_load(setMaxOutputSignals)

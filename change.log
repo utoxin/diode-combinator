@@ -1,6 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.5
+Date: 28-Mar-2021
+  Bugfixes:
+    - Fixed bug when adding mod to an existing save game
+---------------------------------------------------------------------------------------------------
 Version: 1.1.4
-Date: 19-Mar-2021
+Date: 27-Mar-2021
   Bugfixes:
     - Fixed crash when other mods switches toogle
     - Added config parameter to control filter combinator output max signal count
