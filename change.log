@@ -1,5 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.5
+Date: 29-Mar-2021
+  Bugfixes:
+    - Fixed bug when starting a new game
+---------------------------------------------------------------------------------------------------
+Version: 1.1.5
 Date: 28-Mar-2021
   Bugfixes:
     - Fixed bug when adding mod to an existing save game

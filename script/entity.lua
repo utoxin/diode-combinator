@@ -15,7 +15,7 @@ local function getOutputPosition(main_entity)
     return position
 end
 
-local function onInit()
+local function setupGlobals()
     global.opened_entity = global.opened_entity or {}
     global.entities = global.entities or {}
     global.deactivated_entities = global.deactivated_entities or {}
