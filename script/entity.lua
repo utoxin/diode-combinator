@@ -30,8 +30,11 @@ local function onRotated(e)
 end
 
 local function onBuiltEntity(e)
-    if e.created_entity and e.created_entity.name == "signal-filter-combinator" then
-        local main_entity = e.created_entity
+    if 
+        (e.created_entity and e.created_entity.name == "signal-filter-combinator") or
+        (e.entity and e.entity.name == "signal-filter-combinator")
+    then
+        local main_entity = e.created_entity or e.entity
 
         local output_entity = main_entity.surface.create_entity{
             name = "signal-filter-combinator-output",
@@ -88,6 +91,7 @@ local filter = {{filter = "name", name = "signal-filter-combinator"}}
 script.on_event(defines.events.on_built_entity, onBuiltEntity, filter)
 script.on_event(defines.events.on_robot_built_entity, onBuiltEntity, filter)
 script.on_event(defines.events.script_raised_built, onBuiltEntity, filter)
+script.on_event(defines.events.script_raised_revive, onBuiltEntity, filter)
 script.on_event(defines.events.on_player_mined_entity, onMinedEntity, filter)
 script.on_event(defines.events.on_robot_mined_entity, onMinedEntity, filter)
 script.on_event(defines.events.script_raised_destroy, onMinedEntity, filter)
