@@ -1,15 +1,14 @@
 local main = table.deepcopy(data.raw["arithmetic-combinator"]["arithmetic-combinator"])
-local output = table.deepcopy(data.raw["constant-combinator"]["constant-combinator"])
 
 local full_display_sprite = {
 	north = {
-		filename = "__Filter_Combinator__/graphics/entities/diode-combinator-display.png",
+		filename = "__diode-combinator__/graphics/entities/diode-combinator-display.png",
 		width = 15,
 		height = 11,
 		scale = main.and_symbol_sprites.north.scale,
 		shift = main.and_symbol_sprites.north.shift,
 		hr_version = {
-			filename = "__Filter_Combinator__/graphics/entities/hr-diode-combinator-display.png",
+			filename = "__diode-combinator__/graphics/entities/hr-diode-combinator-display.png",
 			width = 30,
 			height = 22,
 			scale = main.and_symbol_sprites.north.hr_version.scale,
@@ -17,13 +16,13 @@ local full_display_sprite = {
 		}
 	},
 	east = {
-		filename = "__Filter_Combinator__/graphics/entities/diode-combinator-display.png",
+		filename = "__diode-combinator__/graphics/entities/diode-combinator-display.png",
 		width = 15,
 		height = 11,
 		scale = main.and_symbol_sprites.east.scale,
 		shift = main.and_symbol_sprites.east.shift,
 		hr_version = {
-			filename = "__Filter_Combinator__/graphics/entities/hr-diode-combinator-display.png",
+			filename = "__diode-combinator__/graphics/entities/hr-diode-combinator-display.png",
 			width = 30,
 			height = 22,
 			scale = main.and_symbol_sprites.east.hr_version.scale,
@@ -31,13 +30,13 @@ local full_display_sprite = {
 		}
 	},
 	south = {
-		filename = "__Filter_Combinator__/graphics/entities/diode-combinator-display.png",
+		filename = "__diode-combinator__/graphics/entities/diode-combinator-display.png",
 		width = 15,
 		height = 11,
 		scale = main.and_symbol_sprites.south.scale,
 		shift = main.and_symbol_sprites.south.shift,
 		hr_version = {
-			filename = "__Filter_Combinator__/graphics/entities/hr-diode-combinator-display.png",
+			filename = "__diode-combinator__/graphics/entities/hr-diode-combinator-display.png",
 			width = 30,
 			height = 22,
 			scale = main.and_symbol_sprites.south.hr_version.scale,
@@ -45,13 +44,13 @@ local full_display_sprite = {
 		}
 	},
 	west = {
-		filename = "__Filter_Combinator__/graphics/entities/diode-combinator-display.png",
+		filename = "__diode-combinator__/graphics/entities/diode-combinator-display.png",
 		width = 15,
 		height = 11,
 		scale = main.and_symbol_sprites.west.scale,
 		shift = main.and_symbol_sprites.west.shift,
 		hr_version = {
-			filename = "__Filter_Combinator__/graphics/entities/hr-diode-combinator-display.png",
+			filename = "__diode-combinator__/graphics/entities/hr-diode-combinator-display.png",
 			width = 30,
 			height = 22,
 			scale = main.and_symbol_sprites.west.hr_version.scale,
@@ -73,14 +72,6 @@ main.plus_symbol_sprites = full_display_sprite
 main.power_symbol_sprites = full_display_sprite
 main.right_shift_symbol_sprites = full_display_sprite
 main.xor_symbol_sprites = full_display_sprite
-main.icon = "__Filter_Combinator__/graphics/icons/diode-combinator.png"
-
-local blank_sprite = {
-	filename = "__Filter_Combinator__/graphics/entities/blank.png",
-	width = 1,
-	height = 1,
-	frame_count = 1,
-	shift = {0, 0}
-}
+main.icon = "__diode-combinator__/graphics/icons/diode-combinator.png"
 
 data:extend{main}
