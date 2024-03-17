@@ -1,0 +1,7 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2024/03/15
+  Added:
+    - Updated filter logic to function as a simple diode.
+  Notes:
+    - Forked from https://github.com/GCascaes/Filter-Combinator

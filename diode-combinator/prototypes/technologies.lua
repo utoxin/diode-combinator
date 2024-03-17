@@ -1,5 +1,5 @@
 data:extend{{
-    name = "signal-filtering",
+    name = "signal-diodes",
     type = "technology",
     icon = "__base__/graphics/technology/circuit-network.png",
     icon_mipmaps = 4,
@@ -11,12 +11,12 @@ data:extend{{
     effects = {
         {
             type = "unlock-recipe",
-            recipe = "signal-filter-combinator"
+            recipe = "signal-diode-combinator"
         }
     },
     unit = {
         time = 15,
-        count = 100,
+        count = 50,
         ingredients = {
           {
             "automation-science-pack",

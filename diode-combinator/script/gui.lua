@@ -15,7 +15,7 @@ local function get_switch_position(switch, control_mode)
 end
 
 local function on_gui_opened(e)
-	if not (e.entity and e.entity.name == 'signal-filter-combinator') then return end
+	if not (e.entity and e.entity.name == 'signal-diode-combinator') then return end
 	
     if not getEntity(e.entity.unit_number) then return end
 	
