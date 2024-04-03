@@ -1,11 +1,14 @@
 {
   "name": "diode-combinator",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "title": "Diode Combinator",
   "author": "Utoxin",
   "contact": "Github Issues",
   "homepage": "https://github.com/utoxin/diode-combinator",
   "description": "Adds a signal diode combinator",
-  "dependencies": ["base >= 1.1.0"],
+  "dependencies": [
+    "base >= 1.1.0",
+    "(?)compaktcircuit"
+  ],
   "factorio_version": "1.1"
 }

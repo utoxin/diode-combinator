@@ -22,3 +22,56 @@ script.on_event(defines.events.on_built_entity, onBuiltEntity, filter)
 script.on_event(defines.events.on_robot_built_entity, onBuiltEntity, filter)
 script.on_event(defines.events.script_raised_built, onBuiltEntity, filter)
 script.on_event(defines.events.script_raised_revive, onBuiltEntity, filter)
+
+local function register_compakt_circuits()
+    if remote.interfaces["compaktcircuit"] then
+
+        local diode_combinator_description = {
+            name = "signal-diode-combinator",
+            packed_names = {
+                "signal-diode-combinator-packed"
+            },
+            interface_name = "compakt-circuits-signal-diode-combinator"
+        }
+
+        remote.call("compaktcircuit", "add_combinator", diode_combinator_description)
+
+        remote.add_interface("compakt-circuits-signal-diode-combinator", {
+            get_info = function(entity)
+                return {
+                    position = entity.position,
+                    direction = entity.direction
+                }
+            end,
+
+            create_packed_entity = function(info, surface, position, force)
+                return surface.create_entity {
+                    name = "signal-diode-combinator-packed",
+                    force = force,
+                    position = position,
+                    direction = info.direction }
+            end,
+
+            create_entity = function(info, surface, force)
+                local entity = surface.create_entity {
+                    name = "signal-diode-combinator",
+                    force = force,
+                    position = info.position,
+                    direction = info.direction
+                }
+
+                script.raise_script_built { entity = entity }
+
+                return entity
+            end
+        })
+    end
+end
+
+script.on_load(function()
+    register_compakt_circuits()
+end)
+
+script.on_init(function()
+    register_compakt_circuits()
+end)
