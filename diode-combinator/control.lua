@@ -1,18 +1,24 @@
+
+local function configure_diode_combinator(entity)
+    entity.operable = false
+
+    local control_behavior = entity.get_or_create_control_behavior()
+    control_behavior.parameters = {
+        first_signal = {type = "virtual", name = "signal-each"},
+        second_constant = 0,
+        operation = "+",
+        output_signal = {type = "virtual", name = "signal-each"}
+    }
+end
+
 local function onBuiltEntity(e)
     if
     (e.created_entity and e.created_entity.name == "signal-diode-combinator") or
             (e.entity and e.entity.name == "signal-diode-combinator")
     then
         local main_entity = e.created_entity or e.entity
-        main_entity.operable = false
 
-        local control_behavior = main_entity.get_or_create_control_behavior()
-        control_behavior.parameters = {
-            first_signal = {type = "virtual", name = "signal-each"},
-            second_constant = 0,
-            operation = "+",
-            output_signal = {type = "virtual", name = "signal-each"}
-        }
+        configure_diode_combinator(main_entity)
     end
 end
 
@@ -45,11 +51,15 @@ local function register_compakt_circuits()
             end,
 
             create_packed_entity = function(info, surface, position, force)
-                return surface.create_entity {
+                local packed_entity = surface.create_entity {
                     name = "signal-diode-combinator-packed",
                     force = force,
                     position = position,
                     direction = info.direction }
+
+                configure_diode_combinator(packed_entity)
+
+                return packed_entity
             end,
 
             create_entity = function(info, surface, force)
@@ -59,6 +69,8 @@ local function register_compakt_circuits()
                     position = info.position,
                     direction = info.direction
                 }
+
+                configure_diode_combinator(entity)
 
                 script.raise_script_built { entity = entity }
 
