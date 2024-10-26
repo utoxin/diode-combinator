@@ -2,12 +2,14 @@ data:extend {
 	{
 		type        = "recipe",
 		name        = "signal-diode-combinator",
-		enabled     = "false",
+		enabled     = false,
 		ingredients = {
-			{ "arithmetic-combinator", 1 },
-			{ "electronic-circuit", 1 },
+			{ type="item", name="arithmetic-combinator", amount=1 },
+			{ type="item", name="electronic-circuit", amount=1 },
 		},
-		result      = "signal-diode-combinator",
+		results      = {
+			{type="item", name="signal-diode-combinator", amount=1}
+		}
 	},
 }
 
@@ -16,7 +18,7 @@ if mods["Ultracube"] then
 
 	recipe.category = "cube-fabricator-handcraft"
 	recipe.ingredients = {
-		{ "arithmetic-combinator", 1 },
-		{ "cube-electronic-circuit", 1 },
+		{ type="item", name="arithmetic-combinator", amount=1 },
+		{ type="item", name="cube-electronic-circuit", amount=1 },
 	}
 end

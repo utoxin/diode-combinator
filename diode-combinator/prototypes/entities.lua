@@ -2,60 +2,32 @@ local main = table.deepcopy(data.raw["arithmetic-combinator"]["arithmetic-combin
 
 local full_display_sprite = {
 	north = {
-		filename = "__diode-combinator__/graphics/entities/diode-combinator-display.png",
+		filename = "__diode-combinator__/graphics/entities/hr-diode-combinator-display.png",
 		width = 15,
 		height = 11,
 		scale = main.and_symbol_sprites.north.scale,
-		shift = main.and_symbol_sprites.north.shift,
-		hr_version = {
-			filename = "__diode-combinator__/graphics/entities/hr-diode-combinator-display.png",
-			width = 30,
-			height = 22,
-			scale = main.and_symbol_sprites.north.hr_version.scale,
-			shift = main.and_symbol_sprites.north.hr_version.shift
-		}
+		shift = main.and_symbol_sprites.north.shift
 	},
 	east = {
-		filename = "__diode-combinator__/graphics/entities/diode-combinator-display.png",
+		filename = "__diode-combinator__/graphics/entities/hr-diode-combinator-display.png",
 		width = 15,
 		height = 11,
 		scale = main.and_symbol_sprites.east.scale,
-		shift = main.and_symbol_sprites.east.shift,
-		hr_version = {
-			filename = "__diode-combinator__/graphics/entities/hr-diode-combinator-display.png",
-			width = 30,
-			height = 22,
-			scale = main.and_symbol_sprites.east.hr_version.scale,
-			shift = main.and_symbol_sprites.east.hr_version.shift
-		}
+		shift = main.and_symbol_sprites.east.shift
 	},
 	south = {
-		filename = "__diode-combinator__/graphics/entities/diode-combinator-display.png",
+		filename = "__diode-combinator__/graphics/entities/hr-diode-combinator-display.png",
 		width = 15,
 		height = 11,
 		scale = main.and_symbol_sprites.south.scale,
-		shift = main.and_symbol_sprites.south.shift,
-		hr_version = {
-			filename = "__diode-combinator__/graphics/entities/hr-diode-combinator-display.png",
-			width = 30,
-			height = 22,
-			scale = main.and_symbol_sprites.south.hr_version.scale,
-			shift = main.and_symbol_sprites.south.hr_version.shift
-		}
+		shift = main.and_symbol_sprites.south.shift
 	},
 	west = {
-		filename = "__diode-combinator__/graphics/entities/diode-combinator-display.png",
+		filename = "__diode-combinator__/graphics/entities/hr-diode-combinator-display.png",
 		width = 15,
 		height = 11,
 		scale = main.and_symbol_sprites.west.scale,
-		shift = main.and_symbol_sprites.west.shift,
-		hr_version = {
-			filename = "__diode-combinator__/graphics/entities/hr-diode-combinator-display.png",
-			width = 30,
-			height = 22,
-			scale = main.and_symbol_sprites.west.hr_version.scale,
-			shift = main.and_symbol_sprites.west.hr_version.shift
-		}
+		shift = main.and_symbol_sprites.west.shift
 	}
 }
 

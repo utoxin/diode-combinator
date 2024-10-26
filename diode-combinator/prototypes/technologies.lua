@@ -18,14 +18,8 @@ data:extend { {
 					  time        = 15,
 					  count       = 50,
 					  ingredients = {
-						  {
-							  "automation-science-pack",
-							  1
-						  },
-						  {
-							  "logistic-science-pack",
-							  1
-						  }
+						  {"automation-science-pack", 1},
+						  {"logistic-science-pack", 1}
 					  }
 				  }
 			  } }
