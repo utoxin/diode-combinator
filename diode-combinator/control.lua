@@ -12,12 +12,8 @@ local function configure_diode_combinator(entity)
 end
 
 local function onBuiltEntity(e)
-    if
-    (e.created_entity and e.created_entity.name == "signal-diode-combinator") or
-            (e.entity and e.entity.name == "signal-diode-combinator")
-    then
-        local main_entity = e.created_entity or e.entity
-
+    if e.entity and e.entity.name == "signal-diode-combinator" then
+        local main_entity = e.entity
         configure_diode_combinator(main_entity)
     end
 end
