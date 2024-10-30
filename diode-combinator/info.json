@@ -9,7 +9,9 @@
   "dependencies": [
     "base >= 2.0.0",
     "(?)compaktcircuit",
-    "(?)Ultracube"
+    "(?)Ultracube",
+    "(?)PickerDollies",
+    "(?)even-pickier-dollies"
   ],
   "factorio_version": "2.0"
 }
