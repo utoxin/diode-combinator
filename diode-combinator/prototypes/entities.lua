@@ -97,7 +97,8 @@ if mods["compaktcircuit"] then
 	packed.modulo_symbol_sprites = invisible_sprite
 
 	packed.flags = packed_flags
-	packed.collision_mask = {}
+	packed.collision_mask = collision_mask_util.new_mask()
+	packed.layer = collision_mask_util.new_mask()
 	packed.selectable_in_game = false
 	packed.circuit_wire_max_distance = 64
 	packed.hidden = true
