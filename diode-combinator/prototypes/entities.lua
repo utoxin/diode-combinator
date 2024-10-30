@@ -58,6 +58,7 @@ if mods["compaktcircuit"] then
 		height = 1
 	}
 
+    ---@class data.ArithmeticCombinatorPrototype
 	local packed = table.deepcopy(main)
 
 	local packed_wire_conn = {
@@ -73,7 +74,6 @@ if mods["compaktcircuit"] then
 
 	local packed_flags = {
 		'placeable-off-grid',
-		"hidden",
 		"hide-alt-info",
 		"not-on-map",
 		"not-upgradable",
@@ -100,6 +100,8 @@ if mods["compaktcircuit"] then
 	packed.collision_mask = {}
 	packed.selectable_in_game = false
 	packed.circuit_wire_max_distance = 64
+	packed.hidden = true
+	packed.hidden_in_factoriopedia = true
 
 	packed.activity_led_sprites = invisible_sprite
 	packed.activity_led_light_offsets = { { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 } }
