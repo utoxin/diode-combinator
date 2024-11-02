@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.1
+Date: 2024/11/02
+  Thanks:
+    - To Henning P. Schmiedehausen for multiple PRs fixing things that I hadn't gotten to yet.
+  Added:
+    - Picker Dollies Support (PR by Henning P. Schmiedehausen)
+  Changed:
+    - Removed useless code (PR by Henning P. Schmiedehausen)
+    - Fixed graphics display (PR by Henning P. Schmiedehausen)
+    - Fixed "hidden" flag for CompaktCircuits (PR by Henning P. Schmiedehausen)
+    - Fixed layer mask definition (PR by Henning P. Schmiedehausen)
+
+---------------------------------------------------------------------------------------------------
 Version: 2.0.0
 Date: 2024/10/26
   Changed:
