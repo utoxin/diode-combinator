@@ -1,31 +1,33 @@
+local collision_mask_util = require('collision-mask-util')
+
 local main = table.deepcopy(data.raw["arithmetic-combinator"]["arithmetic-combinator"])
 
 local full_display_sprite = {
 	north = {
 		filename = "__diode-combinator__/graphics/entities/hr-diode-combinator-display.png",
-		width = 15,
-		height = 11,
+		width = 30,
+		height = 22,
 		scale = main.and_symbol_sprites.north.scale,
 		shift = main.and_symbol_sprites.north.shift
 	},
 	east = {
 		filename = "__diode-combinator__/graphics/entities/hr-diode-combinator-display.png",
-		width = 15,
-		height = 11,
+		width = 30,
+		height = 22,
 		scale = main.and_symbol_sprites.east.scale,
 		shift = main.and_symbol_sprites.east.shift
 	},
 	south = {
 		filename = "__diode-combinator__/graphics/entities/hr-diode-combinator-display.png",
-		width = 15,
-		height = 11,
+		width = 30,
+		height = 22,
 		scale = main.and_symbol_sprites.south.scale,
 		shift = main.and_symbol_sprites.south.shift
 	},
 	west = {
 		filename = "__diode-combinator__/graphics/entities/hr-diode-combinator-display.png",
-		width = 15,
-		height = 11,
+		width = 30,
+		height = 22,
 		scale = main.and_symbol_sprites.west.scale,
 		shift = main.and_symbol_sprites.west.shift
 	}
@@ -56,6 +58,7 @@ if mods["compaktcircuit"] then
 		height = 1
 	}
 
+    ---@class data.ArithmeticCombinatorPrototype
 	local packed = table.deepcopy(main)
 
 	local packed_wire_conn = {
@@ -71,7 +74,6 @@ if mods["compaktcircuit"] then
 
 	local packed_flags = {
 		'placeable-off-grid',
-		"hidden",
 		"hide-alt-info",
 		"not-on-map",
 		"not-upgradable",
@@ -95,9 +97,12 @@ if mods["compaktcircuit"] then
 	packed.modulo_symbol_sprites = invisible_sprite
 
 	packed.flags = packed_flags
-	packed.collision_mask = {}
+	packed.collision_mask = collision_mask_util.new_mask()
+	packed.layer = collision_mask_util.new_mask()
 	packed.selectable_in_game = false
 	packed.circuit_wire_max_distance = 64
+	packed.hidden = true
+	packed.hidden_in_factoriopedia = true
 
 	packed.activity_led_sprites = invisible_sprite
 	packed.activity_led_light_offsets = { { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 } }
