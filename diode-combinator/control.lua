@@ -76,10 +76,18 @@ local function register_compakt_circuits()
     end
 end
 
+local function register_picker_dollies()
+    if remote.interfaces["PickerDollies"] then
+        remote.call("PickerDollies", "add_oblong_name", "signal-diode-combinator")
+    end
+end
+
 script.on_load(function()
     register_compakt_circuits()
+    register_picker_dollies()
 end)
 
 script.on_init(function()
     register_compakt_circuits()
+    register_picker_dollies()
 end)
